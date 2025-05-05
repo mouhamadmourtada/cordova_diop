@@ -95,6 +95,32 @@ h1 {
     padding: 10px;
     position: relative;
     touch-action: pan-y pinch-zoom;
+    transform: translateX(0);
+    transition: transform 0.3s ease-out;
+    background: white;
+    border-radius: 5px;
+    margin: 5px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.todo-item.swiping {
+    transition: transform 0.3s ease-out;
+}
+
+.todo-item.move-right {
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+.todo-item.move-left {
+    transform: translateX(-100%);
+    opacity: 0;
+    background-color: #ff4444;
+}
+
+#completed-tasks .todo-item {
+    background-color: #f8f8f8;
+    color: #666;
 }
 
 .swipe-hint {
@@ -116,7 +142,11 @@ h1 {
 
 .swipe-hint.delete {
     left: 0;
-    background-color: #f44336;
+    background-color: #ff4444;
+}
+
+.swipe-hint.visible {
+    opacity: 1;
 }
 
 .todo-text {
@@ -129,6 +159,15 @@ h1 {
 }
 
 #todo-input {
+    margin-bottom: 10px;
+}
+
+.tasks-section {
+    margin: 20px 0;
+}
+
+.tasks-section h2 {
+    color: #333;
     margin-bottom: 10px;
 }
 
